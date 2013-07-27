@@ -1,0 +1,14 @@
+[user]
+	name = ajduke
+	email = ajduke@about.me
+[core]
+	autocrlf = false
+	safecrlf = true
+[alias]
+	st = status
+	sts = status -s
+	sti = status --ignored
+	lg = log --oneline
+	ci = commit
+	co = checkout
+
