@@ -1,14 +1,51 @@
 [user]
 	name = ajduke
 	email = ajduke@about.me
-[core]
-	autocrlf = false
-	safecrlf = true
-[alias]
-	st = status
-	sts = status -s
-	sti = status --ignored
-	lg = log --oneline
-	ci = commit
-	co = checkout
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+  [color "branch"]
+    current = blue reverse
+    local = blue
+    remote = green
+  [color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = blue
+    changed = green
+    untracked = cyan
+
+[merge]
+  log = true
+
+[mergetool "p4merge"]
+  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepTemporaries = false
+  trustExitCode = false
+  keepBackup = false 
+ 
+ [alias]
+      ci = 'commit -m'
+      co = checkout
+      st = status
+      br = branch
+      sh = show
+	# show difference between the HEAD and the index
+      staged = diff --cached
+	# show difference between working tree and the index
+      unstaged = diff
+	# show staged and unstaged changes (what would be committed with "git commit -a")
+      both = diff HEAD
+      dh = diff HEAD
+	# quick access to oneline log format         
+  	  oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+  	  ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+         graph = log --graph --pretty=oneline --abbrev-commit
+
+
 
