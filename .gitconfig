@@ -32,6 +32,7 @@
  [alias]
       ci = 'commit -m'
       cia = commit -am
+      cim = commit --amend -m
       co = checkout
       st = status
       br = branch
