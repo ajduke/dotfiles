@@ -31,3 +31,27 @@ alias cp='cp -i'
 alias ln='ln -i'
 
 alias apt-get="sudo apt-get"
+
+alias e='vi'
+alias egrep='grep -E'
+alias fgrep='grep -F'
+alias ls='ls -FG'
+alias m='less'
+alias md='mkdir'
+alias p='pstree -p'
+alias sl='ls'
+alias tmp='cd /tmp'
+alias l='ls -la'
+alias dh='df -h'
+
+alias lw='cd ~/workspace/projects/LinkWokV3'
+alias rd=~/workspace/projects/reader_api
+alias startmongo='sudo mongod -f /etc/mongodb.conf --fork'
+alias stopmongo='sudo mongod -f /etc/mongodb.conf --shutdown'
+alias by='bunyan -o short'
+alias slw='source config/env.sh;meteor'
+
+# redis related 
+
+alias redisd='redis-server '
+alias redis='redis-cli ' 
