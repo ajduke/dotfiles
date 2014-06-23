@@ -37,6 +37,8 @@
       st = status
       br = branch
       sh = show
+      sts = stash save
+      stl = stash list
 	# show difference between the HEAD and the index
       staged = diff --cached
 	# show difference between working tree and the index
