@@ -51,6 +51,9 @@ alias stopmongo='sudo mongod -f /etc/mongodb.conf --shutdown'
 alias by='bunyan -o short'
 alias slw='source config/env.sh;meteor'
 
+alias sna='nodemon | by'
+alias search='ps aux | grep'
+
 # redis related 
 
 alias redisd='redis-server '
