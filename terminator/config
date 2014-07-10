@@ -1,0 +1,23 @@
+[global_config]
+  handle_size = 1
+  focus = mouse
+[keybindings]
+  split_horiz = <Shift><Alt>c
+  split_vert = <Shift><Alt>v
+[profiles]
+  [[default]]
+    background_darkness = 0.85
+    use_system_font = False
+    background_type = transparent
+    background_image = None
+    foreground_color = "#00ff00"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
