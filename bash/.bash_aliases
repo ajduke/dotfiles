@@ -58,3 +58,11 @@ alias search='ps aux | grep'
 
 alias redisd='redis-server '
 alias redis='redis-cli ' 
+
+alias ph='phantomjs' 
+alias s3='s3cmd'
+
+alias mp='meteor -p '
+alias mt='meteor'
+
+alias sg='smartgithg.sh'
