@@ -1,16 +1,24 @@
 [global_config]
-  handle_size = 1
-  focus = mouse
+  window_state = hidden
+  handle_size = 0
+  suppress_multiple_term_dialog = True
+  borderless = True
+  title_receive_bg_color = "#c92400"
+  title_transmit_bg_color = "#277fff"
+  hide_from_taskbar = True
+  inactive_color_offset = 0.55
 [keybindings]
   split_horiz = <Shift><Alt>c
   split_vert = <Shift><Alt>v
 [profiles]
   [[default]]
-    background_darkness = 0.85
     use_system_font = False
+    font = Liberation Mono 11
+    background_darkness = 0.72
     background_type = transparent
     background_image = None
     foreground_color = "#00ff00"
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
