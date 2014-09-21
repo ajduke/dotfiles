@@ -47,10 +47,13 @@
       both = diff HEAD
       dh = diff HEAD
 	# quick access to oneline log format         
-  	  oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
-  	  ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
-         graph = log --graph --pretty=oneline --abbrev-commit
-
+      oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+      ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+      graph = log --graph --pretty=oneline --abbrev-commit
+      ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+      ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat
+      ld = log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C(bold blue) [%cn]%Creset' --decorate --date=short
+ 
 [core]
 	excludesfile = ~/.gitignore
 
