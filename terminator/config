@@ -42,6 +42,7 @@
       type = Terminal
       order = 0
       parent = child2
+      command = ""
     [[[terminal5]]]
       profile = default
       type = Terminal
@@ -53,4 +54,57 @@
       type = Terminal
       order = 1
       parent = child2
+      command = ""
+  [[ajduke]]
+    [[[child0]]]
+      position = 127:30
+      type = Window
+      order = 0
+      parent = ""
+      size = 1352, 811
+    [[[child1]]]
+      position = 447
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 414
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child5]]]
+      position = 405
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[child6]]]
+      position = 204
+      type = VPaned
+      order = 0
+      parent = child5
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child6
+    [[[terminal9]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child6
 [plugins]
