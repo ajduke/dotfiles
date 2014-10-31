@@ -109,6 +109,9 @@ echo "########### Here goes your ssh key "
 cat ~/.ssh/id_rsa.pub 
 echo "########### Ssh keys ends here"
 
+echo "########### chwowning directories"
+sudo chown -R siddhi ~/.npm
+sudo chown -R siddhi ~/.meteor
 
 echo "############## Congratualations installation done!!!"
 echo "Install following thing by your own"
