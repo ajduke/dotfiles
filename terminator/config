@@ -21,13 +21,36 @@
     copy_on_selection = True
 [layouts]
   [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-    [[[window0]]]
+    [[[child0]]]
+      position = 175:39
       type = Window
+      order = 0
       parent = ""
-      profile = None
-      size = 1100, 780
+      size = 1100, 762
+    [[[child1]]]
+      position = 381
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 550
+      type = HPaned
+      order = 0
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+      command = top
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
 [plugins]
