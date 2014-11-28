@@ -1,6 +1,9 @@
 [user]
-	name = ajduke
-	email = ajduke@about.me
+  name = ajduke
+  email = ajduke@about.me
+
+[core]
+  excludesfile = ~/.gitignore
 
 [color]
     branch = auto
@@ -20,37 +23,36 @@
     changed = green
     untracked = cyan
 
+
+[diff]
+  external = /usr/local/bin/git-diff.sh
+        
 [merge]
   log = true
 
-[mergetool "p4merge"]
-  cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-  keepTemporaries = false
-  trustExitCode = false
-  keepBackup = false 
- 
- [alias]
-      ci = 'commit -m'
-      cia = commit -am
-      cim = commit --amend -m
-      co = checkout
-      st = status
-      br = branch
-      sh = show
-      sts = stash save
-      stl = stash list
-	# show difference between the HEAD and the index
-      staged = diff --cached
-	# show difference between working tree and the index
-      unstaged = diff
-	# show staged and unstaged changes (what would be committed with "git commit -a")
-      both = diff HEAD
-      dh = diff HEAD
-	# quick access to oneline log format         
-  	  oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
-  	  ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
-         graph = log --graph --pretty=oneline --abbrev-commit
 
-[core]
-	excludesfile = ~/.gitignore
+[alias]
+    ci = 'commit -m'
+    cia = commit -am
+    cim = commit --amend -m
+    co = checkout
+    st = status
+    br = branch
+    sh = show
+    sts = stash save
+    stl = stash list
+# show difference between the HEAD and the index
+    staged = diff --cached
+# show difference between working tree and the index
+    unstaged = diff
+# show staged and unstaged changes (what would be committed with "git commit -a")
+    both = diff HEAD
+    dh = diff HEAD
+# quick access to oneline log format         
+    oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+    ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
+    graph = log --graph --pretty=oneline --abbrev-commit
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
+    ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat
+    ld = log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C(bold blue) [%cn]%Creset' --decorate --date=short
 
