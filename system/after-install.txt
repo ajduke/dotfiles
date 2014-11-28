@@ -1,0 +1,9 @@
+# create file called git-diff.sh and paste following content 
+#!/bin/bash 
+meld "$2" "$5" > /dev/null 2>&1
+
+# save it in /usr/local/bin 
+sudo mv git-diff.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/git-diff.sh
+
+

@@ -31,6 +31,9 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-2
 sudo apt-get update
 sudo apt-get install sublime-text
 
+echo "## Installing meld diff tool"
+sudo apt-get update && sudo apt-get install meld
+
 #install nodejs
 echo "############## Installing NodeJS and NPM"
 sudo apt-get install python-software-properties python g++ make
