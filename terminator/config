@@ -1,12 +1,12 @@
 [global_config]
   window_state = hidden
-  handle_size = 0
-  suppress_multiple_term_dialog = True
-  borderless = True
-  title_receive_bg_color = "#c92400"
-  title_transmit_bg_color = "#277fff"
+  handle_size = 1
   hide_from_taskbar = True
-  inactive_color_offset = 0.55
+  suppress_multiple_term_dialog = True
+  title_receive_bg_color = "#c92400"
+  title_transmit_bg_color = "#d33737"
+  tab_position = bottom
+  inactive_color_offset = 1.0
 [keybindings]
   split_horiz = <Shift><Alt>c
   split_vert = <Shift><Alt>v
@@ -14,18 +14,97 @@
   [[default]]
     use_system_font = False
     font = Liberation Mono 11
-    background_darkness = 0.72
+    background_darkness = 0.87
     background_type = transparent
     background_image = None
     foreground_color = "#00ff00"
     copy_on_selection = True
 [layouts]
   [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-    [[[window0]]]
+    [[[child0]]]
+      position = 175:39
       type = Window
+      order = 0
       parent = ""
+      size = 1100, 762
+    [[[child1]]]
+      position = 381
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 550
+      type = HPaned
+      order = 0
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+      command = ""
+    [[[terminal5]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child1
+      command = top
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+      command = ""
+  [[ajduke]]
+    [[[child0]]]
+      position = 127:30
+      type = Window
+      order = 0
+      parent = ""
+      size = 1352, 811
+    [[[child1]]]
+      position = 447
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 414
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child5]]]
+      position = 405
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[child6]]]
+      position = 204
+      type = VPaned
+      order = 0
+      parent = child5
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child6
+    [[[terminal9]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal8]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child6
 [plugins]

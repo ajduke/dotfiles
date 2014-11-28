@@ -66,3 +66,17 @@ alias mp='meteor -p '
 alias mt='meteor'
 
 alias sg='smartgithg.sh'
+
+# git 
+alias gci=git commit -m
+alias gcia=git commit -am
+
+alias gol="git log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'"
+
+alias gls="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative"
+
+alias gld="git log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C(bold blue) [%cn]%Creset' --decorate --date=short"
+
+alias gll="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat"
+alias gstash="git stash"
+alias gstl="git stash list"

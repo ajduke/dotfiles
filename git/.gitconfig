@@ -30,7 +30,6 @@
 [merge]
   log = true
 
-
 [alias]
     ci = 'commit -m'
     cia = commit -am
@@ -55,4 +54,7 @@
     ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
     ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat
     ld = log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C(bold blue) [%cn]%Creset' --decorate --date=short
+ 
+[core]
+	excludesfile = ~/.gitignore
 
