@@ -105,6 +105,10 @@ cd ~
 mkdir workspace
 mkdir apps
 
+echo "############ Installing elastic search, look for lastest version"
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.1.deb
+dpkg -i elasticsearch-0.90.7.deb
+
 echo "########### Genrating SSH keys now"
 ssh-keygen -t rsa -C "ajduke@about.me" 
 
