@@ -4,6 +4,12 @@ echo "############## basic Install"
 sudo apt-get install curl
 sudo apt-get install tree
 
+# install zsh
+echo "####### install zsh ############"
+sudo apt-get install zsh
+curl -L http://install.ohmyz.sh | sh
+chsh -s `which zsh`
+
 
 # Terminator
 echo "############## Installing Terminator"
