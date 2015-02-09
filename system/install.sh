@@ -17,6 +17,10 @@ sudo add-apt-repository ppa:gnome-terminator
 sudo apt-get update
 sudo apt-get install terminator
 
+# install tmux
+sudo add-apt-repository ppa:pi-rho/dev
+sudo apt-get update
+sudo apt-get install tmux
 
 #install git
 echo "############## Installing Git"

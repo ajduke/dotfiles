@@ -80,3 +80,9 @@ alias gld="git log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C
 alias gll="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat"
 alias gstash="git stash"
 alias gstl="git stash list"
+
+# some tmux love
+alias tma='tmux a -t'
+alias tmn='tmux new -s'
+alias tmxx='tmux kill-session -t'
+alias tml='tmux ls'
