@@ -12,6 +12,12 @@ sudo chmod +x /usr/local/bin/git-diff.sh
 # elastic search configuration
 # /etc/elasticsearch/
 
+#tmux configuration directory
+#/etc/tmux
 
 # install head plugin 
 sudo /usr/share/elasticsearch/bin/plugin --install mobz/elasticsearch-head
+
+
+## download and install ubuntu docker image
+sudo docker run -i -t ubuntu /bin/bash

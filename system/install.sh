@@ -10,7 +10,6 @@ sudo apt-get install zsh
 curl -L http://install.ohmyz.sh | sh
 chsh -s `which zsh`
 
-
 # Terminator
 echo "############## Installing Terminator"
 sudo add-apt-repository ppa:gnome-terminator
@@ -18,6 +17,7 @@ sudo apt-get update
 sudo apt-get install terminator
 
 # install tmux
+echo "############## Installing Tmux"
 sudo add-apt-repository ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get install tmux
@@ -129,6 +129,10 @@ echo "########### Ssh keys ends here"
 echo "########### chwowning directories"
 sudo chown -R siddhi ~/.npm
 sudo chown -R siddhi ~/.meteor
+
+
+echo "########## Installing docker #########"
+curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
 echo "############## Congratualations installation done!!!"
 echo "Install following thing by your own"
