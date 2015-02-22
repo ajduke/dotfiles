@@ -80,4 +80,12 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.bash_aliases
+#android
+export PATH=${PATH}:~/Apps/android-sdk-linux/tools:~/Apps/phantomjs/bin
+export PATH=${PATH}:~/Apps/android-sdk-linux/platform-tools
+
+#ant
+export PATH=${PATH}:~/Apps/apache-ant-1.9.4/bin
+
+# load legacy aliases
+source ~/dotfiles/bash/.bash_aliases
