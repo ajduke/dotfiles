@@ -86,3 +86,6 @@ alias tma='tmux a -t'
 alias tmn='tmux new -s'
 alias tmxx='tmux kill-session -t'
 alias tml='tmux ls'
+
+
+alias clipb= 'xclip -sel clip'
