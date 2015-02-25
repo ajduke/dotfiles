@@ -88,4 +88,10 @@ export PATH=${PATH}:~/Apps/android-sdk-linux/platform-tools
 export PATH=${PATH}:~/Apps/apache-ant-1.9.4/bin
 
 # load legacy aliases
-source ~/dotfiles/bash/.bash_aliases
+if [ -f ~/dotfiles/bash/.bash_aliases ]; then
+  source ~/dotfiles/bash/.bash_aliases
+fi
+
+if [ -f ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
+fi

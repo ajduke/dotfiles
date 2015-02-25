@@ -51,6 +51,11 @@ sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get install nodejs
 
+# Optional install for Nodejs- Using NVM
+curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
+
+
+
 # install meteor
 echo "############## Installing Meteor"
 curl https://install.meteor.com/ | sh
