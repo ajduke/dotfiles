@@ -3,6 +3,8 @@
 echo "############## basic Install"
 sudo apt-get install curl
 sudo apt-get install tree
+sudo apt-get install xclip
+
 
 # install zsh
 echo "####### install zsh ############"

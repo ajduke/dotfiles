@@ -87,3 +87,5 @@ alias tmn='tmux new -s'
 alias tmxx='tmux kill-session -t'
 alias tml='tmux ls'
 alias tm='tmux new -s flow'
+
+alias clipb= 'xclip -sel clip'

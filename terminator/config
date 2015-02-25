@@ -8,8 +8,9 @@
   tab_position = bottom
   inactive_color_offset = 1.0
 [keybindings]
-  split_horiz = <Shift><Alt>c
+  toggle_zoom = <Shift>z
   split_vert = <Shift><Alt>v
+  split_horiz = <Shift><Alt>c
 [profiles]
   [[default]]
     use_system_font = False
@@ -20,7 +21,7 @@
     foreground_color = "#00ff00"
     copy_on_selection = True
 [layouts]
-  [[default]]
+  [[layout1]]
     [[[child0]]]
       position = 175:39
       type = Window
@@ -48,37 +49,37 @@
       type = Terminal
       order = 1
       parent = child1
-      command = top
+      command = ""
     [[[terminal4]]]
       profile = default
       type = Terminal
       order = 1
       parent = child2
       command = ""
-  [[ajduke]]
+  [[new]]
     [[[child0]]]
-      position = 127:30
+      position = 49:24
       type = Window
       order = 0
       parent = ""
-      size = 1352, 811
+      size = 1317, 744
     [[[child1]]]
-      position = 447
+      position = 389
       type = HPaned
       order = 0
       parent = child0
     [[[child2]]]
-      position = 414
+      position = 349
       type = VPaned
       order = 0
       parent = child1
     [[[child5]]]
-      position = 405
+      position = 522
       type = VPaned
       order = 1
       parent = child1
     [[[child6]]]
-      position = 204
+      position = 266
       type = VPaned
       order = 0
       parent = child5
@@ -107,4 +108,16 @@
       type = Terminal
       order = 1
       parent = child6
+  [[default]]
+    [[[child0]]]
+      position = 175:24
+      type = Window
+      order = 0
+      parent = ""
+      size = 1098, 678
+    [[[terminal1]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child0
 [plugins]
