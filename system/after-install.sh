@@ -1,6 +1,6 @@
 
 # open and edit ~/.zshrc file to replace all content with following-
-source ~/dotfiles/zshell/.zshrc
+# source ~/dotfiles/zshell/.zshrc
 
 # copy git specific files
 cp ~/dotfiles/git/.gitconfig ~/.gitconfig 
@@ -9,7 +9,7 @@ cp ~/dotfiles/git/.gitignore ~/.gitignore
 # copy the terminator config file 
 cp ~/dotfiles/terminator/config ~/.config/terminator/config 
 
-#tmux configuration directory
+# copy the tmux configuration file 
 sudo cp ~/dotfiles/tmux/tmux.conf /etc/tmux.conf
 
 # install flashplayer 
