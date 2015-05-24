@@ -14,13 +14,28 @@
 [profiles]
   [[default]]
     use_system_font = False
-    font = Liberation Mono 11
+    copy_on_selection = True
     background_darkness = 0.87
     background_type = transparent
     background_image = None
     foreground_color = "#00ff00"
-    copy_on_selection = True
+    use_custom_command = True
+    login_shell = True
+    custom_command = tmux attach -t flow || tmux new -s flow
+    font = Liberation Mono 11
 [layouts]
+  [[default]]
+    [[[child0]]]
+      position = 175:24
+      type = Window
+      order = 0
+      parent = ""
+      size = 1098, 678
+    [[[terminal1]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child0
   [[layout1]]
     [[[child0]]]
       position = 175:39
@@ -108,16 +123,4 @@
       type = Terminal
       order = 1
       parent = child6
-  [[default]]
-    [[[child0]]]
-      position = 175:24
-      type = Window
-      order = 0
-      parent = ""
-      size = 1098, 678
-    [[[terminal1]]]
-      profile = default
-      type = Terminal
-      order = 0
-      parent = child0
 [plugins]
