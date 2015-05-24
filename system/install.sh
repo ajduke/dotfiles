@@ -6,11 +6,11 @@ sudo apt-get install tree
 sudo apt-get install xclip
 
 
-# install zsh
-echo "####### install zsh ############"
-sudo apt-get install zsh
-curl -L http://install.ohmyz.sh | sh
-chsh -s `which zsh`
+echo '############### Installing Chrome '
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update	
+sudo apt-get install google-chrome-stable
 
 # Terminator
 echo "############## Installing Terminator"
@@ -54,9 +54,7 @@ sudo apt-get update
 sudo apt-get install nodejs
 
 # Optional install for Nodejs- Using NVM
-curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
-
-
+# curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
 
 # install meteor
 echo "############## Installing Meteor"
@@ -99,6 +97,13 @@ echo "############## removing libreoffice"
 sudo apt-get remove --purge libreoffice* 
 sudo apt-get clean 
 sudo apt-get autoremove
+
+
+# install zsh
+echo "####### install zsh ############"
+sudo apt-get install zsh
+curl -L http://install.ohmyz.sh | sh
+chsh -s `which zsh`
 
 echo "############## Installing global npm packages"
 sudo npm install bower -g
