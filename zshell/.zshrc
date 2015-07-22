@@ -92,6 +92,10 @@ if [ -f ~/dotfiles/bash/.bash_aliases ]; then
   source ~/dotfiles/bash/.bash_aliases
 fi
 
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+
 if [ -f ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
 fi
