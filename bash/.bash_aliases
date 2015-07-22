@@ -89,3 +89,5 @@ alias tml='tmux ls'
 alias tm='tmux attach -t flow || tmux new -s flow'
 
 alias clipb= 'xclip -sel clip'
+
+alias nd=nodemon
