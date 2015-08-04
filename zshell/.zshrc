@@ -104,3 +104,17 @@ fi
 
 export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:~/apps/phantomjs/bin
 export PATH=$PATH:"$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+# Load zsh-syntax-highlighting.
+source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zsh-autosuggestions.
+source ~/dotfiles/zshell/zsh-autosuggestions/autosuggestions.zsh
+
+# Enable autosuggestions automatically.
+zle-line-init() {
+    zle autosuggest-start
+}
+
+zle -N zle-line-init
