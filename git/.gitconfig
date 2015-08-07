@@ -24,8 +24,8 @@
     untracked = cyan
 
 
-[diff]
-  external = /usr/local/bin/git-diff.sh
+#[diff]
+#   external = /usr/local/bin/git-diff.sh
         
 [merge]
   log = true

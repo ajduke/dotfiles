@@ -6,6 +6,10 @@
 cp ~/dotfiles/git/.gitconfig ~/.gitconfig 
 cp ~/dotfiles/git/.gitignore ~/.gitignore
 
+# create the .gitconfig on home directory and copy  and format above stuff 
+echo "[include] path= ~/dotfiles/git/.gitconfig" > ~/.gitconfig
+
+
 # copy the terminator config file 
 cp ~/dotfiles/terminator/config ~/.config/terminator/config 
 
