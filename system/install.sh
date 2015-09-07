@@ -9,7 +9,7 @@ sudo apt-get install xclip
 echo '############### Installing Chrome '
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-sudo apt-get update	
+sudo apt-get update
 sudo apt-get install google-chrome-stable
 
 # Terminator
@@ -32,7 +32,7 @@ sudo apt-get install git
 
 #SmartGit
 echo "############## Installing Smart Git"
-sudo add-apt-repository ppa:eugenesan/ppa 
+sudo add-apt-repository ppa:eugenesan/ppa
 sudo apt-get update
 sudo apt-get install smartgit
 
@@ -48,10 +48,8 @@ sudo apt-get update && sudo apt-get install meld
 
 #install nodejs
 echo "############## Installing NodeJS and NPM"
-sudo apt-get install python-software-properties python g++ make
-sudo add-apt-repository ppa:chris-lea/node.js
-sudo apt-get update
-sudo apt-get install nodejs
+curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+sudo apt-get install -y nodejs
 
 # Optional install for Nodejs- Using NVM
 # curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
@@ -80,7 +78,7 @@ echo "############## Installing RoboMongo"
 wget http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 sudo dpkg -i robomongo*.deb
 
-# install Redis 
+# install Redis
 echo "############## Installing Redis"
 sudo apt-get install -y python-software-properties
 sudo add-apt-repository -y ppa:rwky/redis
@@ -94,8 +92,8 @@ sudo apt-get install ruby
 
 #openoffice
 echo "############## removing libreoffice"
-sudo apt-get remove --purge libreoffice* 
-sudo apt-get clean 
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
 sudo apt-get autoremove
 
 
@@ -109,18 +107,18 @@ echo "############## Installing global npm packages"
 sudo npm install bower -g
 sudo npm install coffee-script -g
 sudo npm install nodemon -g
-sudo npm install meteorite -g 
+sudo npm install meteorite -g
 
 echo "############## Install Sass"
 sudo gem install sass
 
 echo "############## Install Zshell"
-sudo apt-get install zsh  
+sudo apt-get install zsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 chsh -s /bin/zsh
 
 echo "############## Install Extra Goodies"
-sudo apt-get install fortune cowsay 
+sudo apt-get install fortune cowsay
 
 echo "############## SOme directories"
 cd ~
@@ -132,10 +130,10 @@ wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearc
 dpkg -i elasticsearch-0.90.7.deb
 
 echo "########### Genrating SSH keys now"
-ssh-keygen -t rsa -C "ajduke@about.me" 
+ssh-keygen -t rsa -C "ajduke@about.me"
 
 echo "########### Here goes your ssh key "
-cat ~/.ssh/id_rsa.pub 
+cat ~/.ssh/id_rsa.pub
 echo "########### Ssh keys ends here"
 
 echo "########### chwowning directories"
