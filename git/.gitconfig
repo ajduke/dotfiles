@@ -37,11 +37,19 @@
     cia = commit -am
     cim = commit --amend -m
     co = checkout
+    nb = checkout -b
     st = status
     br = branch
     sh = show
     sts = stash save
     stl = stash list
+    d = diff 
+    dc = diff --cached
+    last = diff HEAD^
+    unstage = reset HEAD
+    undoc = reset --soft HEAD^
+    pl = pull
+    ps = push  
 # show difference between the HEAD and the index
     staged = diff --cached
 # show difference between working tree and the index
