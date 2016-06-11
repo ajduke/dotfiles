@@ -104,6 +104,7 @@ fi
 
 export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:~/apps/phantomjs/bin
 export PATH=$PATH:"$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:$PWD/node_modules/.bin
 
 
 # Load zsh-syntax-highlighting.
