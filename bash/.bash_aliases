@@ -106,3 +106,7 @@ alias myip='curl ip.appspot.com'
 alias ws="cd ~/workspace"
 alias pc="cd ~/workspace/picasm/picasm"
 alias dt="cd ~/dotfiles"
+
+# Show/Hide files for Mac OS X
+alias sh_files="defaults write com.apple.finder AppleShowAllFiles YES"
+alias hi_files="defaults write com.apple.finder AppleShowAllFiles NO"
