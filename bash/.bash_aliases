@@ -110,3 +110,10 @@ alias dt="cd ~/dotfiles"
 # Show/Hide files for Mac OS X
 alias sh_files="defaults write com.apple.finder AppleShowAllFiles YES"
 alias hi_files="defaults write com.apple.finder AppleShowAllFiles NO"
+
+
+# aliases project specific f
+
+alias test-server="npm run test:server"
+alias str="npm run dev"
+alias rbase="git fetch base; git rebase base/master"

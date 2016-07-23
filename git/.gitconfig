@@ -52,6 +52,9 @@
     undoc = reset --soft HEAD^
     pl = pull
     ps = push
+    r=  remote -v 
+    ra=  remote add
+    ru = remote set-url --add
 # show difference between the HEAD and the index
     staged = diff --cached
 # show difference between working tree and the index
