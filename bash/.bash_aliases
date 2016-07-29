@@ -117,3 +117,8 @@ alias hi_files="defaults write com.apple.finder AppleShowAllFiles NO"
 alias test-server="npm run test:server"
 alias str="npm run dev"
 alias rbase="git fetch base; git rebase base/master"
+alias lint-me="npm run lint"
+alias lint-fix="npm run lint:fix"
+
+alias local-mongo="mongo fractal:27017/development"
+alias mongo-local=local-mongo
