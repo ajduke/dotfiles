@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 fortune | cowsay
+chuck_cow
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -18,7 +19,7 @@ ZSH_THEME="honukai"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -49,7 +50,8 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git terminator debian)
+plugins=(git terminator debian brew chucknorris git-extras history jsontools
+                lol meteor node npm osx redis web-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,11 +64,11 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+else
+  export EDITOR='atom'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -80,15 +82,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="atom ~/dotfiles/zshel/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#android
-export PATH=${PATH}:~/Apps/android-sdk-linux/tools:~/Apps/phantomjs/bin
-export PATH=${PATH}:~/Apps/android-sdk-linux/platform-tools
-
-#ant
-export PATH=${PATH}:~/Apps/apache-ant-1.9.4/bin
 
 # load legacy aliases
 if [ -f ~/dotfiles/bash/.bash_aliases ]; then
@@ -103,12 +98,7 @@ if [ -f ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
 fi
 
-
-
-export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:~/apps/phantomjs/bin
-export PATH=$PATH:"$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$PWD/node_modules/.bin
-
 
 # Load zsh-syntax-highlighting.
 source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

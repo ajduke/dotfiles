@@ -122,3 +122,7 @@ alias lint-fix="npm run lint:fix"
 
 alias local-mongo="mongo fractal:27017/development"
 alias mongo-local=local-mongo
+
+eval "$(thefuck --alias)"
+# You can use whatever you want as an alias, like for Mondays:
+eval "$(thefuck --alias FUCK)"
