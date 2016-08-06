@@ -1,6 +1,8 @@
 [user]
   name = ajduke
   email = ajduke@about.me
+[github]
+	user = ajduke
 
 [commit]
   template = ~/dotfiles/git/.gitmessage
@@ -36,39 +38,57 @@
     ci = commit -m
     cia = commit -am
     cim = commit --amend -m
+
     co = checkout
     nb = checkout -b
+
     g = grep -I
     lg = log -p
+
     st = status
     br = branch
     sh = show
+
     sts = stash save
     stl = stash list
+
     d = diff
     dc = diff --cached
-    last = diff HEAD^
-    unstage = reset HEAD
-    undoc = reset --soft HEAD^
-    pl = pull
-    ps = push
-    r=  remote -v 
-    ra=  remote add
-    ru = remote set-url --add
-# show difference between the HEAD and the index
+    last-commit = diff HEAD^
     staged = diff --cached
-# show difference between working tree and the index
     unstaged = diff
-# show staged and unstaged changes (what would be committed with "git commit -a")
     both = diff HEAD
     dh = diff HEAD
-# quick access to oneline log format
+
+    unstage = reset HEAD
+    undoc = reset --soft HEAD^
+
+    pl = pull
+    ps = push
+
+    r =  remote -v
+    ra =  remote add
+    ru = remote set-url --add
+
+    # Rebase the current branch on its upstream
+  	rebase-upstream = rebase -i @{u}
+  	ru = rebase-upstream
+
+    # quick access to oneline log format
     oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
     ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
     graph = log --graph --pretty=oneline --abbrev-commit
     ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --date=relative
     ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --decorate --numstat
     ld = log --pretty=format:'%C(red)%h %Cgreen%ad%C(yellow)%d %Creset%s%C(bold blue) [%cn]%Creset' --decorate --date=short
+
+    last = "!f(){ if [ $# -gt 0 ]; then since="$1"; shift; else since="week"; fi; git lg --since=\"last $since\" "$@"; }; f"
+    recent = "!f(){ git for-each-ref --sort=committerdate refs/heads/ --format='%(color:yellow)%(HEAD) %(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:reset)%(objectname:short) %(upstream:trackshort) %(subject) <%(color:blue)%(authorname)>%(color:reset)' \"$@\" | column -ts'|'; }; f"
+
+    # For each submodule
+  	subs = submodule foreach --recursive
+    # Update submodules
+    update-subs = submodule foreach --recursive "git fetch && git checkout `git remote-ref`"
 
 [core]
 	excludesfile = ~/.gitignore

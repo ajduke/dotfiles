@@ -1,7 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
 fortune | cowsay
-chuck_cow
+# chuck_cow
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -10,7 +11,6 @@ chuck_cow
 # ZSH_THEME="aussiegeek"
 # ZSH_THEME="random" # crazy mode
 ZSH_THEME="honukai"
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -104,11 +104,4 @@ export PATH=$PATH:$PWD/node_modules/.bin
 source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
-source ~/dotfiles/zshell/zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically.
-zle-line-init() {
-    zle autosuggest-start
-}
-
-zle -N zle-line-init
+source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh

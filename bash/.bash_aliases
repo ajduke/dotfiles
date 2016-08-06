@@ -17,7 +17,9 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
-
+alias e=atom
+alias utb='tar jxvf'
+alias utz='tar zxvf'
 alias grep='grep --color=auto'
 
 alias md='mkdir'
