@@ -34,7 +34,6 @@ alias ln='ln -i'
 
 alias apt-get="sudo apt-get"
 
-alias e='vi'
 alias egrep='grep -E'
 alias fgrep='grep -F'
 alias ls='ls -FG'
@@ -93,9 +92,7 @@ alias s3='s3cmd'
 alias mp='meteor -p '
 alias mt='meteor'
 
-alias sg='smartgithg.sh'
-
-# restart window
+# restart zsh
 alias wtf="source ~/.zshrc"
 
 # let terminal speak for me with 's'
@@ -104,17 +101,27 @@ alias s="say -v 'vicki'"
 # tells me my IP Address
 alias myip='curl ip.appspot.com'
 
-#directories aliases
+# directories aliases
 alias ws="cd ~/workspace"
 alias pc="cd ~/workspace/picasm/picasm"
 alias dt="cd ~/dotfiles"
+
+eval "$(thefuck --alias)"
+# You can use whatever you want as an alias, like for Mondays:
+eval "$(thefuck --alias FUCK)"
+
+alias my_ip=ifconfig | perl -nle'/dr:(\S+)/ && print $1'
+
+alias zshconfig="atom ~/dotfiles/zshell/.zshrc"
+
+npm-do() { (PATH=$(npm bin):$PATH; eval $@;) }
 
 # Show/Hide files for Mac OS X
 alias sh_files="defaults write com.apple.finder AppleShowAllFiles YES"
 alias hi_files="defaults write com.apple.finder AppleShowAllFiles NO"
 
 
-# aliases project specific f
+# project specific aliases
 
 alias test-server="npm run test:server"
 alias str="npm run dev"
@@ -124,12 +131,3 @@ alias lint-fix="npm run lint:fix"
 
 alias local-mongo="mongo fractal:27017/development"
 alias mongo-local=local-mongo
-
-eval "$(thefuck --alias)"
-# You can use whatever you want as an alias, like for Mondays:
-eval "$(thefuck --alias FUCK)"
-
-
-alias my_ip="ifconfig | perl -nle'/dr:(\S+)/ && print $1'"
-
-function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }

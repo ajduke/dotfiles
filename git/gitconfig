@@ -5,9 +5,9 @@
 	user = ajduke
 
 [commit]
-  template = ~/dotfiles/git/.gitmessage
+  template = ~/dotfiles/git/gitmessage
 [core]
-  excludesfile = ~/dotfiles/git/.gitignore
+  excludesfile = ~/dotfiles/git/gitignore
 
 [color]
     branch = auto
