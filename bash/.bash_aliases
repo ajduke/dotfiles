@@ -128,3 +128,8 @@ alias mongo-local=local-mongo
 eval "$(thefuck --alias)"
 # You can use whatever you want as an alias, like for Mondays:
 eval "$(thefuck --alias FUCK)"
+
+
+alias my_ip="ifconfig | perl -nle'/dr:(\S+)/ && print $1'"
+
+function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }

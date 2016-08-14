@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+
 fortune | cowsay
 # chuck_cow
 
@@ -10,8 +11,8 @@ fortune | cowsay
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="aussiegeek"
 # ZSH_THEME="random" # crazy mode
-ZSH_THEME="honukai"
 
+ZSH_THEME="ajduke"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -44,7 +45,7 @@ export UPDATE_ZSH_DAYS=30
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/dotfiles/zshell
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -96,6 +97,9 @@ fi
 
 if [ -f ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
+  nvm use latest
+else
+  echo 'No nvm Installation found'
 fi
 
 export PATH=$PATH:$PWD/node_modules/.bin
