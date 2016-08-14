@@ -4,6 +4,3 @@
 [submodule "zshell/zsh-autosuggestions"]
 	path = zshell/zsh-autosuggestions
 	url = https://github.com/tarruda/zsh-autosuggestions.git
-[submodule "zshell/honukai-iterm-zsh"]
-	path = zshell/honukai-iterm-zsh
-	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
