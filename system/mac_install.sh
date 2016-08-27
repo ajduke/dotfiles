@@ -16,9 +16,12 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 chsh -s /bin/zsh
 
 # copy .zshrc to home directory and reload zshell config
-git clone https://github.com/ajduke/dotfiles.git ~/dotfiles
+git clone  --recursive -j8 https://github.com/ajduke/dotfiles.git ~/dotfiles
 echo 'source ~/dotfiles/zshell/.zshrc' > ~/.zshrc
 source ~/.zshrc
+
+# put it optional
+# git submodule update --int --recursive
 
 # make path to .gitignore
 echo "[include] path= ~/dotfiles/git/.gitconfig" > ~/.gitconfig
@@ -40,11 +43,25 @@ brew update; brew install mongodb
 # install node
 brew update;brew install node
 
+#install nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
+
+# install stable lts node version
+nvm install lts
+nvm alias latest v6.4.0
+
+# install only npm
+curl -L https://www.npmjs.com/install.sh | sh
+
 # install tmux
 brew install tmux
 
+# install java
+brew update; brew install java
+
 # install elastic search
 brew update;brew install elasticsearch
+
 
 # some extra goodies for git
 brew install git-extras git-flow
