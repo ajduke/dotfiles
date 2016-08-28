@@ -15,7 +15,24 @@ cp ~/dotfiles/node/npmrc ~/.npmrc
 # /etc/elasticsearch/
 
 # install head plugin
-# sudo /usr/share/elasticsearch/bin/plugin --install mobz/elasticsearch-head
+# sudo /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head
 
 ## download and install ubuntu docker image
 # sudo docker run -i -t ubuntu /bin/bash
+
+
+echo "############## create working directories directories"
+mkdir ~/workspace ~/app
+
+chsh -s `which zsh`
+
+echo "########### Genrating SSH keys now"
+ssh-keygen -t rsa -C "ajduke@about.me"
+
+echo "########### Here goes your ssh key "
+cat ~/.ssh/id_rsa.pub | pbcopy
+echo "########### Ssh keys ends here"
+
+echo "########### chwowning directories"
+sudo chown -R siddhi ~/.npm
+sudo chown -R siddhi ~/.meteor
