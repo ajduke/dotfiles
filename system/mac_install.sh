@@ -53,6 +53,9 @@ nvm alias latest v6.4.0
 # install only npm
 curl -L https://www.npmjs.com/install.sh | sh
 
+# Telsconsole to share terminal
+curl https://www.teleconsole.com/get.sh | sh
+
 # install tmux
 brew install tmux
 
