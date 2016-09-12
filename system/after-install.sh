@@ -26,9 +26,6 @@ mkdir ~/workspace ~/app
 
 chsh -s `which zsh`
 
-echo "########### Genrating SSH keys now"
-ssh-keygen -t rsa -C "ajduke@about.me"
-
 echo "########### Here goes your ssh key "
 cat ~/.ssh/id_rsa.pub | pbcopy
 echo "########### Ssh keys ends here"
@@ -36,3 +33,36 @@ echo "########### Ssh keys ends here"
 echo "########### chwowning directories"
 sudo chown -R siddhi ~/.npm
 sudo chown -R siddhi ~/.meteor
+
+
+echo "########### Genrating SSH keys now"
+
+# for github
+ssh-keygen -t rsa -C "ajduke@about.me"
+
+# for bitbucket
+cd ~/.ssh
+ssh-keygen -t rsa -C "myemail"
+
+~/.ssh/id_rsa_bitbucket.pub
+~/.ssh/id_rsa_bitbucket
+
+ssh-add -D
+ssh-add ~/.ssh/id_rsa_bitbucket.pub
+ssh-add ~/.ssh/id_rsa_bitbucket
+
+touch config
+atom config
+
+
+```
+Host bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa_bitbucket.pub
+
+Host bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa_bitbucket
+```

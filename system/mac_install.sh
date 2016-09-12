@@ -56,12 +56,10 @@ curl -L https://www.npmjs.com/install.sh | sh
 # install tmux
 brew install tmux
 
-# install java
-brew update; brew install java
 
+brew cask install java
 # install elastic search
 brew update;brew install elasticsearch
-
 
 # some extra goodies for git
 brew install git-extras git-flow
@@ -77,3 +75,6 @@ brew cask install betterzipql
 brew cask install quicklook-csv
 brew cask install quicklook-json
 brew cask install qlmarkdown
+
+
+brew tap homebrew/services
