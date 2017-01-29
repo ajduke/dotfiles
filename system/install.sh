@@ -113,6 +113,10 @@ echo "############ Installing elastic search, look for lastest version"
 wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.1.deb
 dpkg -i elasticsearch-0.90.7.deb
 
+sudo apt update
+sudo apt install python3-dev python3-pip
+sudo -H pip3 install thefuck
+
 echo "########## Installing docker #########"
 curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 
