@@ -6,6 +6,7 @@
 
 [commit]
   template = ~/dotfiles/git/gitmessage
+
 [core]
   excludesfile = ~/dotfiles/git/gitignore
   pager = diff-so-fancy | less --tabs=2 -RFX
@@ -50,11 +51,15 @@
     br = branch
     sh = show
 
+    undo = reset --soft HEAD^
+    prune = fetch --prune
+    stash-all = stash save -u
     sts = stash save
     stl = stash list
 
     d = diff
     dc = diff --cached
+    dw = diff --word-diff
     last-commit = diff HEAD^
     staged = diff --cached
     unstaged = diff
@@ -75,6 +80,11 @@
   	rebase-upstream = rebase -i @{u}
   	ru = rebase-upstream
 
+    mywork = log --all --oneline --no-merges --author=ajduke@about.me
+    today = log --since=00:00:00 --all --no-merges --oneline --author=ajduke@about.me
+
+    brw= for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+    slog = shortlog -sn --al --no-merges
     # quick access to oneline log format
     oneline = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
     ol = log --date=relative --pretty=format:'%Cred%h %Cblue%ar %Creset%s %Cred%an'
@@ -90,6 +100,3 @@
   	subs = submodule foreach --recursive
     # Update submodules
     update-subs = submodule foreach --recursive "git fetch && git checkout `git remote-ref`"
-
-[core]
-	excludesfile = ~/.gitignore
