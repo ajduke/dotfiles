@@ -81,6 +81,10 @@ if [ -f ~/dotfiles/bash/shell_aliases ]; then
   source ~/dotfiles/bash/shell_aliases
 fi
 
+if [ -f ~/dotfiles/bash/shell_functions.sh ]; then
+  source ~/dotfiles/bash/shell_functions.sh
+fi
+
 if [ -f ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
   nvm use latest
