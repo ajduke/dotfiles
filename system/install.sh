@@ -5,7 +5,6 @@ sudo apt-get install curl
 sudo apt-get install tree
 sudo apt-get install xclip
 
-
 echo '############### Installing Chrome '
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
@@ -100,10 +99,9 @@ curl -L http://install.ohmyz.sh | sh
 chsh -s `which zsh`
 
 echo "############## Installing global npm packages"
-sudo npm install bower -g
-sudo npm install coffee-script -g
 sudo npm install nodemon -g
-sudo npm install meteorite -g
+sudo npm install diff-so-fancy -g
+sudo npm install yarn -g
 
 echo "############## Install Sass"
 sudo gem install sass

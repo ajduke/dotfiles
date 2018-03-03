@@ -25,6 +25,8 @@ alias grep='grep --color=auto'
 alias md='mkdir'
 alias rm='sudo rm'
 
+
+
 # do not delete / or prompt if deleting more than 3 files at a time #
 alias rm='rm -I --preserve-root'
 
@@ -132,3 +134,10 @@ alias lint-fix="npm run lint:fix"
 
 alias local-mongo="mongo fractal:27017/development"
 alias mongo-local=local-mongo
+
+alias top_cmds="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
+
+mdd () {
+  mkdir -p -- "$1" &&
+  cd -P -- "$1"
+}
