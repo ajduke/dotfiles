@@ -40,6 +40,9 @@ curl https://install.meteor.com/ | sh
 # install mongodb
 brew update; brew install mongodb
 
+# install redis
+brew update; brew install redis
+
 # install node
 brew update;brew install node
 
@@ -68,7 +71,9 @@ brew update;brew install elasticsearch
 brew install git-extras git-flow
 
 # to correct last entered command
-brew install thefuck wifi-password jo tree
+brew install thefuck wifi-password jo tree httpie gcc diff-so-fancy
+
+
 
 #### installs with Cask #####
 brew cask install atom
