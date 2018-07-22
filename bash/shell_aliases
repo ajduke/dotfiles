@@ -23,6 +23,7 @@ alias utz='tar zxvf'
 alias grep='grep --color=auto'
 
 alias md='mkdir'
+alias rm='sudo rm'
 
 
 
