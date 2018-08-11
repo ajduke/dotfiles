@@ -73,6 +73,9 @@ brew install git-extras git-flow
 # to correct last entered command
 brew install thefuck wifi-password jo tree httpie gcc diff-so-fancy
 
+## lazygit CLI UI 
+brew tap jesseduffield/lazygit
+brew install lazygit
 
 
 #### installs with Cask #####
