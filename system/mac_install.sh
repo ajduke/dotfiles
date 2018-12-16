@@ -75,7 +75,11 @@ brew install thefuck wifi-password jo tree httpie gcc diff-so-fancy
 
 ## lazygit CLI UI 
 brew tap jesseduffield/lazygit
-brew install lazygit
+brew install lazygit 
+brew install blueutil # for bluetooth on/off from CLI
+
+# fx- cli json view for
+brew install fx
 
 
 #### installs with Cask #####
