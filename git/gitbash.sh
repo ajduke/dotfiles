@@ -1,8 +1,9 @@
 # Global variables
 re='^[0-9]+$'
 # base_branch='v2-alpha'
-# base_branch='3.1-alpha'
-base_branch='3.2-alpha'
+# base_branch='3.4-alpha'
+base_branch='3.9-alpha'
+# base_branch='3.3-alpha'
 # base_branch='v3.0-alpha'
 # Will create a new branch with name ($1) from master
 # it will also make sure master is up to date from origin
@@ -122,15 +123,15 @@ commit() {
     if [ -z "${message// }" ]
         then echo "Commit message missing"
     else
-        git commit -am "$currentBranch #comment $message"
+        git commit -am "$currentBranch # $message"
     fi
 }
 
 # Updates your fork from upstream master and pushes the updates to your origin fork
 updateFork() {
     git checkout master
-    git fetch upstream master
-    git merge upstream/master
+    git fetch base master
+    git merge base/master
     push master
 }
 

@@ -51,7 +51,7 @@ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 sudo apt-get install -y nodejs
 
 # Optional install for Nodejs- Using NVM
-curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 # install meteor
 echo "############## Installing Meteor"

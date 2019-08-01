@@ -141,3 +141,15 @@ mdd () {
   mkdir -p -- "$1" &&
   cd -P -- "$1"
 }
+
+connect-dev () {
+  ssh abhijeet.sutar@dev
+}
+
+connect-fractal () {
+  ssh abhijeet.sutar@fractal
+}
+connect-testing () {
+  ssh abhijeet.sutar@testing
+}
+
