@@ -153,3 +153,5 @@ connect-testing () {
   ssh abhijeet.sutar@testing
 }
 
+
+alias lg='lazygit'

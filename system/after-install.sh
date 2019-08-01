@@ -66,3 +66,9 @@ Host bitbucket.org
     User git
     IdentityFile ~/.ssh/id_rsa_bitbucket
 ```
+
+
+# install global npm packages 
+
+
+npm install -g emma-cli chalk-animation chalk-cli create-react-app ipt 

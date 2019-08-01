@@ -20,4 +20,37 @@ mkgit_dir () {
   hub browse
 }
 
+get_jest_base () {
+  echo "Do you want to clone jest-base into ${PWD} directory, confirm, y/n? "
+  read confirm
+
+  if [ "$confirm" = 'y' ]
+  then
+    chalk-animation --duration 2000 rainbow  'Starting cloning repo 🚀'
+    git clone git@github.com:ajduke/jest-base.git .
+    rm -rf .git
+    chalk-animation --duration 2000 rainbow  'Starting npm install 🚌'
+    npm i 
+    chalk-animation --duration 2000 rainbow  'Done 🎊 🎉'
+  else
+    chalk-animation rainbow --duration 2000 'Closing the session 🙏'
+  fi
+}
+
+mkdir_cd () {
+  if [ -z "$1" ]
+  then 
+    chalk blue bold 'Enter directory name..'
+    read dir_name
+    mkdir $dir_name
+    cd $dir_name
+  else 
+    mkdir $1
+    cd $1
+  fi
+}
+
+
+alias mkcd=mkdir_cd
+alias get_jb=get_jest_base
 alias mkgd=mkgit_dir
