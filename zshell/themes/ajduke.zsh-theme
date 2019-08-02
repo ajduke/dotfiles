@@ -22,6 +22,14 @@ node_npm_version(){
   PM=" %{$terminfo[bold]$fg[magenta]%}node%{$terminfo[bold]$fg[white]%}@%{$terminfo[bold]$fg[green]%}$(node -v 2>/dev/null)%{$terminfo[bold]$fg[white]%}/%{$terminfo[bold]$fg[red]%}$(npm -v 2>/dev/null)"
   echo -n $PM
 }
+
+local py_info='$(py_version)'
+py_version(){
+  pyv=" %{$terminfo[bold]$fg[magenta]%}python%{$terminfo[bold]$fg[white]%}@%{$terminfo[bold]$fg[green]%}$(python -V 2>/dev/null)%{$terminfo[bold]$fg[white]%}"
+  echo -n $pyv
+}
+# ${py_info}%{$fg[white]%} \
+
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE st for [TIME] \n $
 PROMPT="
 %{$terminfo[bold]$fg[magenta]%}>%{$reset_color%} \

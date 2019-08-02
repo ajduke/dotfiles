@@ -49,8 +49,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zshell
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git terminator debian brew chucknorris git-extras history jsontools
-                lol meteor node npm osx redis web-search)
+plugins=(git brew git-extras history jsontools lol osx redis-cli)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,7 +91,7 @@ fi
 export PATH=$PATH:$PWD/node_modules/.bin
 
 # Load zsh-syntax-highlighting.
-source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
-source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
