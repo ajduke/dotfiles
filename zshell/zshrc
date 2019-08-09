@@ -88,7 +88,9 @@ else
   echo 'No nvm Installation found'
 fi
 
-export PATH=$PATH:$PWD/node_modules/.bin
+# export PATH=$PATH:$PWD/node_modules/.bin
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Load zsh-syntax-highlighting.
 # source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -28,7 +28,7 @@ get_jest_base () {
   then
     chalk-animation --duration 2000 rainbow  'Starting cloning repo 🚀'
     git clone git@github.com:ajduke/jest-base.git .
-    rm -rf .git
+    sudo rm -rf .git
     chalk-animation --duration 2000 rainbow  'Starting npm install 🚌'
     npm i 
     chalk-animation --duration 2000 rainbow  'Done 🎊 🎉'

@@ -38,20 +38,27 @@ sudo npm i -g coffee-script pm2 nodemon n
 curl https://install.meteor.com/ | sh
 
 # install mongodb
+brew update; brew install python
+python -V
+
+# install mongodb
 brew update; brew install mongodb
+mongod -v
+mongo -v
 
 # install redis
 brew update; brew install redis
+redis-cli -v
 
-# install node
-brew update;brew install node
+# install node, not needed, use nvm instead
+# brew update;brew install node
 
 #install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
 
 # install stable lts node version
-nvm install lts
-nvm alias latest v6.4.0
+nvm install lts/*
+nvm alias latest lts/*
 
 # install only npm
 curl -L https://www.npmjs.com/install.sh | sh
