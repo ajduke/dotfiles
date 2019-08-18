@@ -1,10 +1,6 @@
 # Global variables
 re='^[0-9]+$'
-# base_branch='v2-alpha'
-# base_branch='3.4-alpha'
-base_branch='3.9-alpha'
-# base_branch='3.3-alpha'
-# base_branch='v3.0-alpha'
+base_branch='4.00-alpha'
 # Will create a new branch with name ($1) from master
 # it will also make sure master is up to date from origin
 workstart() {
