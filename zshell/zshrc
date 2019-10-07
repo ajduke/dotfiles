@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 fortune | cowsay
 
-# Set name of the theme to load.
+# Set name of the theme to load
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
@@ -89,11 +89,14 @@ else
 fi
 
 # export PATH=$PATH:$PWD/node_modules/.bin
-
+# adds the brew python home installation
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+# adds the python bin dir for the avaiable executables 
+export PATH="~/Library/Python/3.7/bin:$PATH" 
+
 # Load zsh-syntax-highlighting.
-# source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
-# source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh

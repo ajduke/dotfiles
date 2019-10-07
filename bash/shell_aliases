@@ -134,6 +134,7 @@ alias lint-fix="npm run lint:fix"
 
 alias local-mongo="mongo fractal:27017/development"
 alias mongo-local=local-mongo
+alias pls=sudo -su
 
 alias top_cmds="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
 
@@ -143,13 +144,21 @@ mdd () {
 }
 
 connect-dev () {
-  ssh abhijeet.sutar@dev
+  printf "\e]1337;SetBadgeFormat=%s\a" \
+  $(echo -n "Dev machine" | base64)
+  ssh-add ~/.ssh/id_rsa_dev.pub
+  ssh -A abhijeet.sutar@dev
 }
 
 connect-fractal () {
+  printf "\e]1337;SetBadgeFormat=%s\a" \
+  $(echo -n "Fractal machine" | base64)
+  
   ssh abhijeet.sutar@fractal
 }
 connect-testing () {
+  printf "\e]1337;SetBadgeFormat=%s\a" \
+  $(echo -n "Testing machine" | base64)
   ssh abhijeet.sutar@testing
 }
 

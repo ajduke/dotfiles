@@ -1,6 +1,6 @@
 # Global variables
 re='^[0-9]+$'
-base_branch='4.00-alpha'
+base_branch='4.2-alpha'
 # Will create a new branch with name ($1) from master
 # it will also make sure master is up to date from origin
 workstart() {
@@ -84,7 +84,7 @@ push() {
     if [ -z $1 ]
         then echo "Need the name of the branch"
     else
-        git push base $1
+        git push origin $1
     fi
 }
 
