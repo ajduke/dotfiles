@@ -69,6 +69,7 @@ Host bitbucket.org
 
 
 # install global npm packages 
-
-
 npm install -g emma-cli chalk-animation chalk-cli create-react-app ipt 
+
+# install jupyter notebooks, although you can access it via Azure notebooks
+python -m pip install jupyter
