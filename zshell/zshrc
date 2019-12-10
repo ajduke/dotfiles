@@ -96,7 +96,16 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="~/Library/Python/3.7/bin:$PATH" 
 
 # Load zsh-syntax-highlighting.
+
+# Load zsh-syntax-highlighting.
+# Load zsh-syntax-highlighting.
+
 source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # Load zsh-autosuggestions.
 source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+
+
