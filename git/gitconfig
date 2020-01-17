@@ -100,3 +100,4 @@
   	subs = submodule foreach --recursive
     # Update submodules
     update-subs = submodule foreach --recursive "git fetch && git checkout `git remote-ref`"
+    parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
