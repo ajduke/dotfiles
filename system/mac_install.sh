@@ -104,3 +104,4 @@ brew tap homebrew/services
 ## take Dock to left and run this on left to minimize
 # defaults write com.apple.dock autohide-time-modifier -float .5
 # killall Dock
+brew install bat
