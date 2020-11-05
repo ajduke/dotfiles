@@ -8,9 +8,9 @@ fortune | cowsay
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="aussiegeek"
-# ZSH_THEME="random" # crazy mode
-
-ZSH_THEME="ajduke"
+#ZSH_THEME="random" # crazy mode
+#pygmalion
+ ZSH_THEME="ajduke"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zshell
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew git-extras history jsontools lol osx redis-cli)
+plugins=(git brew git-extras history jsontools lol osx redis-cli npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,12 +81,6 @@ if [ -f ~/dotfiles/bash/shell_functions.sh ]; then
   source ~/dotfiles/bash/shell_functions.sh
 fi
 
-if [ -f ~/.nvm/nvm.sh ]; then
-  source ~/.nvm/nvm.sh
-  nvm use latest
-else
-  echo 'No nvm Installation found'
-fi
 
 # export PATH=$PATH:$PWD/node_modules/.bin
 # adds the brew python home installation
@@ -100,12 +94,42 @@ export PATH="~/Library/Python/3.7/bin:$PATH"
 # Load zsh-syntax-highlighting.
 # Load zsh-syntax-highlighting.
 
-source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/dotfiles/zshell/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # Load zsh-autosuggestions.
-source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/dotfiles/zshell/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+ZSH_DISABLE_COMPFIX=true
+# source ~/dotfiles/git/gitbash.sh
+
+# Adding the binarioes to the path for easy access
+
+export PATH="/usr/local/opt/mongodb-community@3.4/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH=/Users/abhijeetsutar/.gem/ruby/2.7.0p0/bin:/usr/local/opt/ruby/bin:/Users/abhijeetsutar/.yarn/bin:/Users/abhijeetsutar/.config/yarn/global/node_modules/.bin:/usr/local/opt/mongodb-community@3.4/bin:/Users/abhijeetsutar/.nvm/versions/node/v10.16.0/bin:~/Library/Python/3.7/bin:/usr/local/opt/python/libexec/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=/usr/local/lib/ruby/gems/2.7.0p0/bin:$PATH
+export EJSON_KEYDIR=$HOME/.ejson
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
+export PATH=$ANDROID_SDK/tools/bin:$PATH
+
+export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:./node_modules
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+if [ -z "$LANG" ]; then export LANG="$(defaults read -g AppleLocale | sed 's/@.*$//g').UTF-8"; fi
 
 
 
-
+if [ -f ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
+  nvm use default
+else
+  echo 'No nvm Installation found'
+fi

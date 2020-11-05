@@ -1,10 +1,10 @@
 # Global variables
-re='^[0-9]+$'
-base_branch='4.2-alpha'
+re="^[0-9]+$"
+base_branch="4.2-alpha"
 # Will create a new branch with name ($1) from master
 # it will also make sure master is up to date from origin
 workstart() {
-    if ! [[ $1 =~ $re ]]
+    if ! [[ $1 == $re ]]
     then
         val=$1
     else
@@ -18,7 +18,7 @@ workstart() {
 # Will create remove the branch with name ($1) from local and origin
 # before it removes, it will make sure master is up to date from origin
 workdone() {
-    if ! [[ $1 =~ $re ]]
+    if ! [[ $1 == $re ]]
     then
         val=$1
     else

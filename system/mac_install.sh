@@ -16,7 +16,7 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 chsh -s /bin/zsh
 
 # copy .zshrc to home directory and reload zshell config
-git clone  --recursive -j8 https://github.com/ajduke/dotfiles.git ~/dotfiles
+git clone https://github.com/ajduke/dotfiles.git ~/dotfiles
 echo 'source ~/dotfiles/zshell/zshrc' > ~/.zshrc
 source ~/.zshrc
 
@@ -50,25 +50,18 @@ mongo -v
 brew update; brew install redis
 redis-cli -v
 
-# install node, not needed, use nvm instead
-# brew update;brew install node
-
-#install nvm
+#install nvm => use the latest from its official the github repo
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.6/install.sh | bash
 
 # install stable lts node version
 nvm install lts/*
 nvm alias latest lts/*
 
-# install only npm
-curl -L https://www.npmjs.com/install.sh | sh
-
 # Telsconsole to share terminal
 curl https://www.teleconsole.com/get.sh | sh
 
 # install tmux
 brew install tmux
-
 
 brew cask install java
 # install elastic search
@@ -87,16 +80,25 @@ brew install blueutil # for bluetooth on/off from CLI
 
 # fx- cli json view for
 brew install fx
-
+brew install exa
+brew install tldr
+brew install tldr
+brew install starship
 
 #### installs with Cask #####
-brew cask install atom
-brew cask install google-chrome
-brew cask install qlimagesize
-brew cask install betterzipql
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install qlmarkdown
+brew cask install
+  visual-studio-code \
+   atom \
+   google-chrome \
+    iterm2 \
+     docker \
+       slack \
+         spotify\
+  qlimagesize \
+  betterzipql \
+  quicklook-csv \
+  quicklook-json\
+  qlmarkdown
 
 
 brew tap homebrew/services
@@ -104,3 +106,5 @@ brew tap homebrew/services
 ## take Dock to left and run this on left to minimize
 # defaults write com.apple.dock autohide-time-modifier -float .5
 # killall Dock
+
+Install following applications 

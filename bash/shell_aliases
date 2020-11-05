@@ -22,13 +22,13 @@ alias utb='tar jxvf'
 alias utz='tar zxvf'
 alias grep='grep --color=auto'
 
-alias md='mkdir'
-alias rm='sudo rm'
+#alias md='mkdir'
+#alias rm='sudo rm'
 
 
 
 # do not delete / or prompt if deleting more than 3 files at a time #
-alias rm='rm -I --preserve-root'
+# alias rm='rm -I --preserve-root'
 
 # confirmation #
 alias mv='mv -i'
@@ -105,7 +105,7 @@ alias s="say -v 'vicki'"
 alias myip='curl ip.appspot.com'
 
 # directories aliases
-alias ws="cd ~/workspace"
+alias wsp="cd ~/workspace"
 alias pc="cd ~/workspace/picasm/picasm"
 alias dt="cd ~/dotfiles"
 
@@ -138,6 +138,17 @@ alias pls=sudo -su
 
 alias top_cmds="history | awk '{print $2}' | sort | uniq -c | sort -rn | head -10"
 
+
+alias myip='curl http://ipecho.net/plain; echo'
+alias zshconfig='code $HOME/dotfiles'
+
+# Node specific 
+alias n='npm'
+alias ni='npm install'
+alias ns='npm start'
+alias yolo='rm -rf node_modules/ && rm package-lock.json && npm install'
+alias tldr=tldr
+
 mdd () {
   mkdir -p -- "$1" &&
   cd -P -- "$1"
@@ -165,8 +176,11 @@ connect-testing () {
 connect-qure-staging() {
   printf "\e]1337;SetBadgeFormat=%s\a" \
   $(echo -n "Qure staging machine" | base64)
-  ssh -i ~/workarea/connect/qure-staging.pem ubuntu@13.232.85.11
+  ssh -i ~/workspace/connect/qure-staging.pem ubuntu@13.232.85.11
 }
 
+function https-server() {
+  http-server --ssl --cert ~/.localhost-ssl/localhost.crt --key ~/.localhost-ssl/localhost.key
+}
 
 alias lg='lazygit'
