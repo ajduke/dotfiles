@@ -100,8 +100,13 @@ brew cask install
   quicklook-json\
   qlmarkdown
 
+brew cask install qlstephen
+brew cask install qlcolorcode
+brew cask install qlvideo
+brew cask install responsively
 
 brew tap homebrew/services
+brew update && brew cask install react-native-debugger
 
 ## take Dock to left and run this on left to minimize
 # defaults write com.apple.dock autohide-time-modifier -float .5

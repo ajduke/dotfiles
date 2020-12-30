@@ -50,6 +50,10 @@ mkdir_cd () {
   fi
 }
 
+connect_vpn () {
+  cd ~/workspace/connect
+  sudo openfortivpn -c qurevpn.txt
+}
 
 alias mkcd=mkdir_cd
 alias get_jb=get_jest_base
