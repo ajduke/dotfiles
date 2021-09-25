@@ -113,3 +113,4 @@ brew update && brew cask install react-native-debugger
 # killall Dock
 
 Install following applications 
+brew install openfortivpn

@@ -122,6 +122,8 @@ export PATH=$ANDROID_SDK/tools/bin:$PATH
 
 export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:./node_modules
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH=".rvm/gems/ruby-2.7.2/bin":$PATH
+# echo 'export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"' >> ~/.zshrc
 
 if [ -z "$LANG" ]; then export LANG="$(defaults read -g AppleLocale | sed 's/@.*$//g').UTF-8"; fi
 

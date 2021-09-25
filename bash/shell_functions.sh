@@ -50,9 +50,14 @@ mkdir_cd () {
   fi
 }
 
+connect_qure_npm () {
+  ssh-add ~/workspace/connect/qurepypi.pem
+  ssh ubuntu@35.154.199.235
+}
+
 connect_vpn () {
   cd ~/workspace/connect
-  sudo openfortivpn -c qurevpn.txt
+  sudo openfortivpn -c qurevpn.txt --trusted-cert 620d83314d41ebc3bc59a84bab1733143058d092a3b89cc091686ee0746a5c52
 }
 
 alias mkcd=mkdir_cd

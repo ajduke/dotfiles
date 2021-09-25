@@ -4,9 +4,6 @@
 [github]
 	user = ajduke
 
-[commit]
-  template = ~/dotfiles/git/gitmessage
-
 [core]
   excludesfile = ~/dotfiles/git/gitignore
   pager = diff-so-fancy | less --tabs=2 -RFX
