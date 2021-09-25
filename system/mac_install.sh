@@ -111,6 +111,7 @@ brew update && brew cask install react-native-debugger
 ## take Dock to left and run this on left to minimize
 # defaults write com.apple.dock autohide-time-modifier -float .5
 # killall Dock
+brew install bat
 
-Install following applications 
+Install following applications
 brew install openfortivpn
