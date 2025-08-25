@@ -1,0 +1,335 @@
+# Modern ZSH Configuration - VP Engineering Setup 2024
+# Ultra-productive development environment with AI integration
+
+# ==========================================
+# ZSH & OH-MY-ZSH CONFIGURATION
+# ==========================================
+
+# Path to oh-my-zsh installation
+export ZSH="$HOME/.oh-my-zsh"
+
+# Use Starship prompt instead of oh-my-zsh themes
+# We'll initialize Starship after plugins for better performance
+ZSH_THEME=""
+
+# Oh-my-zsh settings
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
+DISABLE_AUTO_UPDATE="false"
+UPDATE_ZSH_DAYS=30
+DISABLE_LS_COLORS="false"
+DISABLE_AUTO_TITLE="false"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="false"
+HIST_STAMPS="yyyy-mm-dd"
+
+# Custom folder for oh-my-zsh
+ZSH_CUSTOM="$HOME/dotfiles/zsh"
+
+# Enhanced plugins for modern development
+plugins=(
+    git
+    github
+    node
+    npm
+    docker
+    kubectl
+    aws
+    gcloud
+    terraform
+    python
+    pip
+    poetry
+    brew
+    macos
+    vscode
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fzf
+    z
+    extract
+    web-search
+    copydir
+    copyfile
+    dirhistory
+    history-substring-search
+    colored-man-pages
+)
+
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# ==========================================
+# MODERN SHELL CONFIGURATION
+# ==========================================
+
+# Initialize Starship prompt (modern replacement for theme)
+if command -v starship > /dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
+
+# Initialize mise for version management (replaces nvm, pyenv, etc.)
+if command -v mise > /dev/null 2>&1; then
+    eval "$(mise activate zsh)"
+fi
+
+# Initialize zoxide for smart directory jumping
+if command -v zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
+
+# Initialize atuin for enhanced shell history
+if command -v atuin > /dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+fi
+
+# Initialize direnv for automatic environment loading
+if command -v direnv > /dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
+
+# ==========================================
+# ENVIRONMENT VARIABLES
+# ==========================================
+
+# Editor preferences
+export EDITOR='cursor'
+export VISUAL='cursor'
+export PAGER='bat'
+export TERMINAL='iterm2'
+
+# Language settings
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# Development environment
+export DEVELOPMENT_MODE=true
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+# Enhanced PATH
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+
+# Mise configuration
+export MISE_DATA_DIR="$HOME/.local/share/mise"
+export MISE_CONFIG_DIR="$HOME/.config/mise"
+
+# Notes system configuration
+export NOTES_DIR="$HOME/notes"
+
+# AI Configuration (set your API keys)
+# export GEMINI_API_KEY="your-gemini-api-key"
+# export NOTION_API_KEY="your-notion-api-key"
+# export NOTION_DATABASE_ID="your-notion-database-id"
+
+# Project context (for monorepo management)
+export PROJECT_CONTEXT=""
+
+# ==========================================
+# FZF CONFIGURATION
+# ==========================================
+
+# Enhanced FZF settings
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+# FZF color scheme (matches Starship theme)
+export FZF_DEFAULT_OPTS='
+    --height 40% --layout=reverse --border
+    --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+    --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+    --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+    --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
+'
+
+# FZF key bindings and completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ==========================================
+# HISTORY CONFIGURATION
+# ==========================================
+
+# Enhanced history settings
+export HISTSIZE=50000
+export SAVEHIST=50000
+export HISTFILE="$HOME/.zsh_history"
+
+# History options
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+
+# ==========================================
+# ZSH OPTIONS
+# ==========================================
+
+# Navigation
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+
+# Completion
+setopt COMPLETE_ALIASES
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt ALWAYS_TO_END
+
+# Correction
+setopt CORRECT
+setopt CORRECT_ALL
+
+# Globbing
+setopt EXTENDED_GLOB
+setopt NULL_GLOB
+
+# ==========================================
+# LOAD MODERN FUNCTIONS & ALIASES
+# ==========================================
+
+# Load ultra-short aliases
+[ -f "$HOME/dotfiles/zsh/ultra_aliases.zsh" ] && source "$HOME/dotfiles/zsh/ultra_aliases.zsh"
+
+# Load development functions (includes ds command)
+[ -f "$HOME/dotfiles/zsh/dev_functions.zsh" ] && source "$HOME/dotfiles/zsh/dev_functions.zsh"
+
+# Load worktree management functions
+[ -f "$HOME/dotfiles/zsh/worktree_functions.zsh" ] && source "$HOME/dotfiles/zsh/worktree_functions.zsh"
+
+# Load AI functions (Gemini CLI integration)
+[ -f "$HOME/dotfiles/zsh/ai_functions.zsh" ] && source "$HOME/dotfiles/zsh/ai_functions.zsh"
+
+# Load notes system
+[ -f "$HOME/dotfiles/zsh/notes_functions.zsh" ] && source "$HOME/dotfiles/zsh/notes_functions.zsh"
+
+# Load legacy functions for compatibility
+[ -f "$HOME/dotfiles/bash/shell_functions.sh" ] && source "$HOME/dotfiles/bash/shell_functions.sh"
+
+# Load legacy aliases for compatibility
+[ -f "$HOME/dotfiles/bash/shell_aliases" ] && source "$HOME/dotfiles/bash/shell_aliases"
+
+# ==========================================
+# COMPLETION ENHANCEMENTS
+# ==========================================
+
+# Enable completion caching
+autoload -Uz compinit
+compinit -d ~/.zcompdump
+
+# Completion styles
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+# Kill completion
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# ==========================================
+# KEY BINDINGS
+# ==========================================
+
+# Emacs-style key bindings (can change to vi if preferred)
+bindkey -e
+
+# Enhanced history search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+
+# FZF bindings
+bindkey '^T' fzf-file-widget
+bindkey '^R' fzf-history-widget
+bindkey '^[c' fzf-cd-widget
+
+# Quick edit command line
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+# ==========================================
+# STARTUP ACTIONS
+# ==========================================
+
+# Initialize notes system if not exists
+if [[ ! -d "$NOTES_DIR" ]]; then
+    init-notes > /dev/null 2>&1
+fi
+
+# Show welcome message on new session
+if [[ -z "$TMUX" ]]; then
+    echo "🚀 Modern Dotfiles Loaded"
+    echo "💡 Quick commands: ds (dev-start), ar (ai-review), n (note), wn (new-worktree)"
+    echo "📊 Git shortcuts: send, ship, sync | Notes: nm, nd, ni | AI: ar, ac, ai"
+fi
+
+# Auto-start development server if in project directory (optional)
+# Uncomment if you want automatic server starting
+# if [[ -f "package.json" ]] && [[ -z "$TMUX" ]] && [[ "$PWD" != "$HOME" ]]; then
+#     echo "📦 Detected Node.js project. Run 'ds' to start development server."
+# fi
+
+# ==========================================
+# PERFORMANCE OPTIMIZATIONS
+# ==========================================
+
+# Reduce startup time by loading completions asynchronously
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
+
+# Cache completion for better performance
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# ==========================================
+# CONDITIONAL LOADING
+# ==========================================
+
+# Load work-specific configurations if they exist
+[ -f "$HOME/.work_zshrc" ] && source "$HOME/.work_zshrc"
+
+# Load machine-specific configurations
+[ -f "$HOME/.local_zshrc" ] && source "$HOME/.local_zshrc"
+
+# Load secrets (API keys, tokens) from a separate file
+[ -f "$HOME/.zsh_secrets" ] && source "$HOME/.zsh_secrets"
+
+# ==========================================
+# FINAL SETUP
+# ==========================================
+
+# Set up project context if in a known project
+if [[ -f ".project-context" ]]; then
+    export PROJECT_CONTEXT=$(cat .project-context)
+fi
+
+# Enable command-not-found suggestions on macOS
+if [[ -f /opt/homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh ]]; then
+    source /opt/homebrew/Library/Taps/homebrew/homebrew-command-not-found/handler.sh
+fi

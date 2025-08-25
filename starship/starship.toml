@@ -1,0 +1,273 @@
+# Starship Configuration - Modern Dotfiles 2024
+# VP Engineering optimized prompt
+
+# General configuration
+format = """
+[┌─](bold green)[$directory](bold blue)[$git_branch$git_status](bold purple)[$nodejs$python$docker_context$kubernetes](bold yellow)[$character](bold green)
+[└─](bold green)$time $cmd_duration $jobs 
+"""
+
+# Enable continuation prompt
+continuation_prompt = "[└─](bold green)❯ "
+
+# Command timeout
+command_timeout = 5000
+
+# Add newline before prompt
+add_newline = true
+
+# ==========================================
+# DIRECTORY CONFIGURATION
+# ==========================================
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+
+# Custom directory names for common paths
+[directory.substitutions]
+"~/workspace" = "🚀 workspace"
+"~/dotfiles" = "⚙️ dotfiles"
+"~/Documents" = "📄 docs"
+"~/Downloads" = "📥 downloads"
+"~/notes" = "📝 notes"
+
+# ==========================================
+# GIT CONFIGURATION
+# ==========================================
+
+[git_branch]
+style = "bold purple"
+symbol = "🌿 "
+format = "[$symbol$branch(:$remote_branch)]($style)"
+
+[git_status]
+style = "bold red"
+format = "([\\[$all_status$ahead_behind\\]]($style))"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = "[++\\($count\\)](green)"
+renamed = "👅"
+deleted = "🗑"
+
+[git_commit]
+style = "bold green"
+format = "[\\($hash$tag\\)]($style)"
+commit_hash_length = 7
+tag_symbol = "🔖 "
+
+# ==========================================
+# LANGUAGE & RUNTIME VERSIONS
+# ==========================================
+
+[nodejs]
+style = "bold green"
+symbol = "⬢ "
+format = "[$symbol($version)]($style)"
+detect_extensions = ["js", "jsx", "ts", "tsx", "mjs", "cjs"]
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_folders = ["node_modules"]
+
+[python]
+style = "bold yellow"
+symbol = "🐍 "
+format = "[$symbol$pyenv_prefix($version)(\\($virtualenv\\))]($style)"
+detect_extensions = ["py"]
+detect_files = [".python-version", "Pipfile", "requirements.txt", "pyproject.toml", "tox.ini"]
+
+[rust]
+style = "bold red"
+symbol = "⚙️ "
+format = "[$symbol($version)]($style)"
+
+[golang]
+style = "bold cyan"
+symbol = "🐹 "
+format = "[$symbol($version)]($style)"
+
+# ==========================================
+# CONTAINER & CLOUD CONFIGURATION
+# ==========================================
+
+[docker_context]
+style = "bold blue"
+symbol = "🐳 "
+format = "[$symbol$context]($style)"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+
+[kubernetes]
+style = "bold blue"
+symbol = "☸ "
+format = "[$symbol$context( \\($namespace\\))]($style)"
+disabled = false
+
+[aws]
+style = "bold orange"
+symbol = "☁️ "
+format = "[$symbol($profile)(\\($region\\))]($style)"
+
+[gcloud]
+style = "bold blue"
+symbol = "☁️ "
+format = "[$symbol$account(@$domain)(\\($region\\))]($style)"
+
+# ==========================================
+# PERFORMANCE & TIMING
+# ==========================================
+
+[time]
+style = "bold white"
+format = "[$time]($style)"
+time_format = "%R"
+disabled = false
+
+[cmd_duration]
+style = "bold yellow"
+format = "[⏱ $duration]($style)"
+min_time = 2000
+show_milliseconds = false
+
+[jobs]
+style = "bold red"
+symbol = "✦"
+number_threshold = 1
+symbol_threshold = 1
+format = "[$symbol$number]($style)"
+
+# ==========================================
+# CHARACTER & STATUS
+# ==========================================
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"
+vimcmd_replace_one_symbol = "[❮](bold purple)"
+vimcmd_replace_symbol = "[❮](bold purple)"
+vimcmd_visual_symbol = "[❮](bold yellow)"
+
+[status]
+style = "bold red"
+symbol = "🔴"
+format = "[$symbol$status]($style)"
+disabled = false
+
+# ==========================================
+# PACKAGE MANAGERS
+# ==========================================
+
+[package]
+style = "bold cyan"
+symbol = "📦 "
+format = "[$symbol$version]($style)"
+display_private = false
+
+[npm]
+style = "bold red"
+symbol = "📦 "
+format = "[$symbol($version)]($style)"
+
+[yarn]
+style = "bold blue"
+symbol = "🧶 "
+format = "[$symbol($version)]($style)"
+
+# ==========================================
+# DATABASES
+# ==========================================
+
+[postgres]
+style = "bold blue"
+symbol = "🐘 "
+format = "[$symbol($version)]($style)"
+
+[redis]
+style = "bold red"
+symbol = "📡 "
+format = "[$symbol($version)]($style)"
+
+# ==========================================
+# TOOLS & UTILITIES
+# ==========================================
+
+[terraform]
+style = "bold purple"
+symbol = "💠 "
+format = "[$symbol$workspace]($style)"
+
+[helm]
+style = "bold blue"
+symbol = "⎈ "
+format = "[$symbol($version)]($style)"
+
+[vagrant]
+style = "bold cyan"
+symbol = "⍱ "
+format = "[$symbol($version)]($style)"
+
+# ==========================================
+# BATTERY (for laptops)
+# ==========================================
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+unknown_symbol = "❓"
+empty_symbol = "💀"
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+# ==========================================
+# MEMORY USAGE
+# ==========================================
+
+[memory_usage]
+style = "bold dimmed green"
+symbol = "🐏 "
+format = "[$symbol${ram}]($style)"
+threshold = 70
+disabled = false
+
+# ==========================================
+# CUSTOM MODULES
+# ==========================================
+
+# Project context indicator (for monorepos)
+[custom.project_context]
+command = "echo $PROJECT_CONTEXT"
+when = "[[ -n $PROJECT_CONTEXT ]]"
+style = "bold cyan"
+symbol = "📁 "
+format = "[$symbol$output]($style)"
+
+# Notes indicator
+[custom.notes]
+command = "if [[ -d ~/notes ]]; then echo 'notes'; fi"
+when = "[[ -d ~/notes ]]"
+style = "bold green"
+symbol = "📝 "
+format = "[$symbol]($style)"
+
+# AI tools indicator
+[custom.ai]
+command = "if [[ -n $GEMINI_API_KEY ]]; then echo 'AI'; fi"
+when = "[[ -n $GEMINI_API_KEY ]]"
+style = "bold magenta"
+symbol = "🤖 "
+format = "[$symbol]($style)"

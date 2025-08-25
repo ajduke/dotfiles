@@ -1,0 +1,216 @@
+# Modern Git Configuration - VP Engineering Setup
+# Enhanced workflows with ultra-short aliases
+
+[user]
+    name = ajduke
+    email = ajduke@about.me
+
+[github]
+    user = ajduke
+
+[core]
+    editor = cursor --wait
+    pager = delta
+    excludesfile = ~/dotfiles/git/gitignore
+    autocrlf = input
+    quotepath = false
+
+# Delta configuration for better diffs
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    line-numbers = true
+    syntax-theme = Dracula
+    side-by-side = true
+    features = decorations
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[merge]
+    conflictstyle = diff3
+    tool = cursor
+
+[mergetool "cursor"]
+    cmd = cursor --wait "$MERGED"
+
+[diff]
+    colorMoved = default
+    tool = cursor
+
+[difftool "cursor"]
+    cmd = cursor --diff --wait "$LOCAL" "$REMOTE"
+
+# ==========================================
+# ULTRA-SHORT GIT ALIASES (1-2 chars)
+# ==========================================
+
+[alias]
+    # Ultra-short status and basic commands
+    s = status --short --branch
+    a = add
+    aa = add --all
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    co = checkout
+    b = branch
+    m = merge
+    f = fetch
+    p = push
+    pl = pull
+    r = reset
+    rb = rebase
+
+    # VP Workflow Commands (addressing your pain points)
+    # send = commit + push (no PR)
+    send = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+    
+    # ship = commit + push + create PR  
+    ship = "!f() { git add -A && git commit -m \"$1\" && git push && gh pr create --web; }; f"
+    
+    # sync = fetch + rebase + cleanup
+    sync = "!f() { git fetch origin && git rebase origin/$(git symbolic-ref --short HEAD) && git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d; }; f"
+
+    # Quick branch management
+    new = "!f() { git checkout -b \"$1\" && git push -u origin \"$1\"; }; f"
+    switch = checkout
+    delete = branch -d
+    nuke = "!f() { git branch -D \"$1\" && git push origin --delete \"$1\"; }; f"
+
+    # Enhanced log views
+    lg = log --oneline --decorate --graph --all -20
+    tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    recent = for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/
+
+    # Team management (VP specific)
+    team = log --oneline --since="1 week ago" --author-date-order --pretty=format:'%Cred%h%Creset %Cgreen%an%Creset %s %Cblue(%cr)%Creset'
+    standup = log --oneline --since="yesterday" --author="$(git config user.email)" --pretty=format:'%Cred%h%Creset %s %Cblue(%cr)%Creset'
+    blame-stats = "!f() { git blame --line-porcelain \"$1\" | sed -n 's/^author //p' | sort | uniq -c | sort -rn; }; f"
+
+    # Deployment helpers
+    deploy = "!f() { git push origin main && echo '🚀 Deployed to production'; }; f"
+    staging = "!f() { git push origin staging && echo '🚀 Deployed to staging'; }; f"
+    hotfix = "!f() { git checkout -b \"hotfix/$1\" && git push -u origin \"hotfix/$1\" && gh pr create --title \"Hotfix: $1\" --label \"urgent\"; }; f"
+
+    # Code review workflow
+    review = "!gh pr view --web"
+    approve = "!gh pr review --approve"
+    request-review = "!f() { gh pr create --reviewer \"$1\" --web; }; f"
+
+    # Working with worktrees
+    wt = worktree
+    wt-add = "!f() { git worktree add \"../$1\" -b \"$1\"; }; f"
+    wt-list = worktree list
+    wt-remove = worktree remove
+
+    # Stash management
+    save = stash push -m
+    pop = stash pop
+    peek = stash show -p
+    saved = stash list
+
+    # Diff shortcuts
+    d = diff
+    dc = diff --cached
+    dw = diff --word-diff
+    ds = diff --stat
+    last = diff HEAD~1
+    show-files = diff --name-only
+
+    # Undo helpers
+    undo = reset --soft HEAD~1
+    nuke-changes = reset --hard HEAD
+    unstage = reset HEAD
+
+    # Remote management
+    remotes = remote -v
+    origin = !git remote get-url origin
+    upstream = !git remote get-url upstream
+
+    # Maintenance
+    cleanup = "!f() { git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d && git remote prune origin; }; f"
+    optimize = "!git gc --aggressive --prune=now"
+
+    # Search and find
+    find = "!f() { git log --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s%Cgreen [%cn]' --decorate --date=short --grep=\"$1\"; }; f"
+    who = "!f() { git log --author=\"$1\" --pretty=format:'%C(yellow)%h %Cblue%ad %Creset%s' --date=short; }; f"
+
+    # AI integration placeholders
+    ai-commit = "!echo 'AI commit message generation - configure in zsh functions'"
+    ai-review = "!echo 'AI code review - configure in zsh functions'"
+
+    # Performance and statistics
+    contributors = shortlog -sn --all --no-merges
+    activity = "!git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+    file-history = log --follow --patch --
+
+    # Release management
+    tag-latest = describe --tags --abbrev=0
+    tag-new = "!f() { git tag -a \"$1\" -m \"Release $1\" && git push origin \"$1\"; }; f"
+    releases = tag --sort=-version:refname
+
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+
+[color "branch"]
+    current = blue reverse
+    local = blue
+    remote = green
+
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = blue
+    changed = green
+    untracked = cyan
+
+# Push configuration
+[push]
+    default = current
+    autoSetupRemote = true
+
+# Pull configuration
+[pull]
+    rebase = true
+
+# Fetch configuration
+[fetch]
+    prune = true
+
+# Rebase configuration
+[rebase]
+    autoStash = true
+    autoSquash = true
+
+# Modern Git features
+[init]
+    defaultBranch = main
+
+[branch]
+    autosetupmerge = always
+    autosetuprebase = always
+
+# GitHub CLI integration
+[credential "https://github.com"]
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
