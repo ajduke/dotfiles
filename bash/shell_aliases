@@ -25,8 +25,6 @@ alias grep='grep --color=auto'
 #alias md='mkdir'
 #alias rm='sudo rm'
 
-
-
 # do not delete / or prompt if deleting more than 3 files at a time #
 # alias rm='rm -I --preserve-root'
 
@@ -74,7 +72,7 @@ alias tmxx='tmux kill-session -t'
 alias tml='tmux ls'
 alias tm='tmux attach -t flow || tmux new -s flow'
 
-alias clipb= 'xclip -sel clip'
+alias clipb='xclip -sel clip'
 alias shruggie="printf \"¯\_(ツ)_/¯\" | pbcopy && echo \"¯\_(ツ)_/¯ copied to clipboard\""
 
 # app shortcuts
@@ -109,9 +107,6 @@ alias wsp="cd ~/workspace"
 alias pc="cd ~/workspace/picasm/picasm"
 alias dt="cd ~/dotfiles"
 
-eval "$(thefuck --alias)"
-# You can use whatever you want as an alias, like for Mondays:
-eval "$(thefuck --alias FUCK)"
 
 alias my_ip=ifconfig | perl -nle'/dr:(\S+)/ && print $1'
 
@@ -184,3 +179,6 @@ function https-server() {
 }
 
 alias lg='lazygit'
+
+alias ca='cursor-agent'
+alias cl='claude'

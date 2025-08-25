@@ -115,3 +115,6 @@ brew install bat
 
 Install following applications
 brew install openfortivpn
+
+brew install gemini-cli
+brew install charmbracelet/tap/crush

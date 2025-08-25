@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-fortune | cowsay
-
 # Set name of the theme to load
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -49,7 +47,7 @@ ZSH_CUSTOM=$HOME/dotfiles/zshell
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew git-extras history jsontools lol osx redis-cli npm)
+plugins=(git brew git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,35 +102,9 @@ export PATH="~/Library/Python/3.7/bin:$PATH"
 ZSH_DISABLE_COMPFIX=true
 # source ~/dotfiles/git/gitbash.sh
 
-# Adding the binarioes to the path for easy access
-
-export PATH="/usr/local/opt/mongodb-community@3.4/bin:$PATH"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH=/Users/abhijeetsutar/.gem/ruby/2.7.0p0/bin:/usr/local/opt/ruby/bin:/Users/abhijeetsutar/.yarn/bin:/Users/abhijeetsutar/.config/yarn/global/node_modules/.bin:/usr/local/opt/mongodb-community@3.4/bin:/Users/abhijeetsutar/.nvm/versions/node/v10.16.0/bin:~/Library/Python/3.7/bin:/usr/local/opt/python/libexec/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export PATH=/usr/local/lib/ruby/gems/2.7.0p0/bin:$PATH
-export EJSON_KEYDIR=$HOME/.ejson
-
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
-export PATH=$ANDROID_SDK/tools/bin:$PATH
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-export PATH=$PATH:/home/abhijeet/apps-tools/phantomjs-1.9.7/bin:~/apps-tools/smartgithg-5_0_9/bin:./node_modules
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH=".rvm/gems/ruby-2.7.2/bin":$PATH
-# echo 'export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"' >> ~/.zshrc
-
-if [ -z "$LANG" ]; then export LANG="$(defaults read -g AppleLocale | sed 's/@.*$//g').UTF-8"; fi
-
-# export LANG="en_US.UTF-8"
+# Set a reliable locale instead of dynamic detection
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 
 if [ -f ~/.nvm/nvm.sh ]; then
@@ -141,3 +113,6 @@ if [ -f ~/.nvm/nvm.sh ]; then
 else
   echo 'No nvm Installation found'
 fi
+
+
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/sbin:/usr/local/bin:$PATH"
