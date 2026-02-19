@@ -44,13 +44,9 @@ plugins=(
     brew
     macos
     vscode
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fzf
     z
     extract
     web-search
-    copydir
     copyfile
     dirhistory
     history-substring-search
@@ -216,7 +212,8 @@ setopt NULL_GLOB
 # Load legacy functions for compatibility
 [ -f "$HOME/dotfiles/bash/shell_functions.sh" ] && source "$HOME/dotfiles/bash/shell_functions.sh"
 
-# Load legacy aliases for compatibility
+# Load aliases (prefer symlinked ~/.shell_aliases)
+[ -f "$HOME/.shell_aliases" ] && source "$HOME/.shell_aliases"
 [ -f "$HOME/dotfiles/bash/shell_aliases" ] && source "$HOME/dotfiles/bash/shell_aliases"
 
 # ==========================================
@@ -278,11 +275,11 @@ if [[ ! -d "$NOTES_DIR" ]]; then
     init-notes > /dev/null 2>&1
 fi
 
-# Show welcome message on new session
+# Show banner on new terminal session (quiet startup)
 if [[ -z "$TMUX" ]]; then
-    echo "🚀 Modern Dotfiles Loaded"
-    echo "💡 Quick commands: ds (dev-start), ar (ai-review), n (note), wn (new-worktree)"
-    echo "📊 Git shortcuts: send, ship, sync | Notes: nm, nd, ni | AI: ar, ac, ai"
+    if typeset -f show_ajduke_banner > /dev/null 2>&1; then
+        show_ajduke_banner
+    fi
 fi
 
 # Auto-start development server if in project directory (optional)

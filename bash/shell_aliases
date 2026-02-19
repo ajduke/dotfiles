@@ -149,36 +149,210 @@ mdd () {
   cd -P -- "$1"
 }
 
-connect-dev () {
-  printf "\e]1337;SetBadgeFormat=%s\a" \
-  $(echo -n "Dev machine" | base64)
-  ssh-add ~/.ssh/id_rsa_dev.pub
-  ssh -A abhijeet.sutar@dev
-}
-
-connect-fractal () {
-  printf "\e]1337;SetBadgeFormat=%s\a" \
-  $(echo -n "Fractal machine" | base64)
-  
-  ssh abhijeet.sutar@fractal
-}
-connect-testing () {
-  printf "\e]1337;SetBadgeFormat=%s\a" \
-  $(echo -n "Testing machine" | base64)
-  ssh abhijeet.sutar@testing
-}
-
-connect-qure-staging() {
-  printf "\e]1337;SetBadgeFormat=%s\a" \
-  $(echo -n "Qure staging machine" | base64)
-  ssh -i ~/workspace/connect/qure-staging.pem ubuntu@13.232.85.11
-}
-
 function https-server() {
   http-server --ssl --cert ~/.localhost-ssl/localhost.crt --key ~/.localhost-ssl/localhost.key
 }
 
+
+# Rotating motivational quote (works in both bash and zsh)
+show_ajduke_motivation_quote() {
+  local cache_dir quote_state_file quote_count current_index next_index quote color_code
+
+  cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}"
+  quote_state_file="$cache_dir/ajduke_quote_idx"
+  quote_count=15
+
+  mkdir -p "$cache_dir" 2>/dev/null
+
+  current_index=-1
+  if [ -r "$quote_state_file" ]; then
+    current_index="$(tr -cd '0-9' < "$quote_state_file")"
+    if [ -z "$current_index" ]; then
+      current_index=-1
+    fi
+  fi
+
+  next_index=$(( (current_index + 1) % quote_count ))
+  printf '%s\n' "$next_index" > "$quote_state_file" 2>/dev/null
+
+  case "$next_index" in
+    0) quote="Discipline is choosing what you want most over what you want now." ;;
+    1) quote="Small progress every day compounds into big outcomes." ;;
+    2) quote="Focus is a superpower in a distracted world." ;;
+    3) quote="Done is better than perfect, then iterate." ;;
+    4) quote="Consistency beats intensity." ;;
+    5) quote="The hard part is starting; momentum does the rest." ;;
+    6) quote="Clarity comes from action, not overthinking." ;;
+    7) quote="Protect your deep work like a meeting with your future." ;;
+    8) quote="You do not rise to goals, you fall to systems." ;;
+    9) quote="One high-quality hour beats four scattered ones." ;;
+    10) quote="Ship the version you can improve." ;;
+    11) quote="Effort is never wasted; it trains your standard." ;;
+    12) quote="Make it work, make it clean, make it fast." ;;
+    13) quote="Your calendar reveals your real priorities." ;;
+    14) quote="The best time to focus was this morning. The next best is now." ;;
+  esac
+
+  case $((next_index % 6)) in
+    0) color_code="38;5;111" ;; # light cyan
+    1) color_code="38;5;149" ;; # mint
+    2) color_code="38;5;221" ;; # warm yellow
+    3) color_code="38;5;213" ;; # pink
+    4) color_code="38;5;147" ;; # lavender
+    5) color_code="38;5;180" ;; # sand
+  esac
+
+  printf '\033[%sm%s\033[0m\n' "$color_code" "$quote"
+}
+
+show_ajduke_runtime_versions() {
+  local node_ver npm_ver py_ver pip_ver node_segment py_segment runtime_info
+
+  node_ver=""
+  npm_ver=""
+  py_ver=""
+  pip_ver=""
+  node_segment=""
+  py_segment=""
+  runtime_info=""
+
+  if command -v node >/dev/null 2>&1; then
+    node_ver="$(node -v 2>/dev/null)"
+  fi
+
+  if command -v npm >/dev/null 2>&1; then
+    npm_ver="$(npm -v 2>/dev/null)"
+  fi
+
+  if command -v python3 >/dev/null 2>&1; then
+    py_ver="$(python3 -V 2>&1 | awk '{print $2}')"
+  elif command -v python >/dev/null 2>&1; then
+    py_ver="$(python -V 2>&1 | awk '{print $2}')"
+  fi
+
+  if command -v pip3 >/dev/null 2>&1; then
+    pip_ver="$(pip3 --version 2>/dev/null | awk '{print $2}')"
+  elif command -v pip >/dev/null 2>&1; then
+    pip_ver="$(pip --version 2>/dev/null | awk '{print $2}')"
+  fi
+
+  if [ -n "$node_ver" ]; then
+    node_segment="node $node_ver"
+    if [ -n "$npm_ver" ]; then
+      node_segment="$node_segment (npm $npm_ver)"
+    fi
+  fi
+
+  if [ -n "$py_ver" ]; then
+    py_segment="py $py_ver"
+    if [ -n "$pip_ver" ]; then
+      py_segment="$py_segment (pip $pip_ver)"
+    fi
+  fi
+
+  if [ -n "$node_segment" ]; then
+    runtime_info="$node_segment"
+  fi
+
+  if [ -n "$py_segment" ]; then
+    if [ -n "$runtime_info" ]; then
+      runtime_info="$runtime_info | $py_segment"
+    else
+      runtime_info="$py_segment"
+    fi
+  fi
+
+  if [ -n "$runtime_info" ]; then
+    printf "\033[2;38;5;241m%s\033[0m\n" "$runtime_info"
+  fi
+}
+
+get_ajduke_tagline() {
+  local cache_dir tagline_state_file tagline_count current_index next_index tagline
+
+  cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}"
+  tagline_state_file="$cache_dir/ajduke_tagline_idx"
+  tagline_count=6
+
+  mkdir -p "$cache_dir" 2>/dev/null
+
+  current_index=-1
+  if [ -r "$tagline_state_file" ]; then
+    current_index="$(tr -cd '0-9' < "$tagline_state_file")"
+    if [ -z "$current_index" ]; then
+      current_index=-1
+    fi
+  fi
+
+  next_index=$(( (current_index + 1) % tagline_count ))
+  printf '%s\n' "$next_index" > "$tagline_state_file" 2>/dev/null
+
+  case "$next_index" in
+    0) tagline="Smart Products. Solid Engineering." ;;
+    1) tagline="Where Aesthetics Meet Architecture." ;;
+    2) tagline="Engineering Elegance." ;;
+    3) tagline="Defining Modern Frontends." ;;
+    4) tagline="Where Aesthetics Meet Architecture. Strong contrast. Professional." ;;
+    5) tagline="Elevated Engineering." ;;
+  esac
+
+  printf '%s\n' "$tagline"
+}
+
+show_ajduke_tagline() {
+  local tagline color_code
+  tagline="$1"
+  color_code="${2:-245}"
+  printf "\033[2;38;5;%sm%s\033[0m\n" "$color_code" "  — $tagline —"
+}
+
+# Claude Code-inspired startup banner
+show_ajduke_banner() {
+  # Print only once per shell session unless forced
+  if [ -n "${AJDUKE_BANNER_SHOWN:-}" ] && [ "${1:-}" != "--force" ]; then
+    return
+  fi
+  AJDUKE_BANNER_SHOWN=1
+
+  local figlet_bin="" tagline=""
+  tagline="$(get_ajduke_tagline)"
+  figlet_bin="$(command -v figlet 2>/dev/null)"
+  if [ -z "$figlet_bin" ] && [ -x "/opt/homebrew/bin/figlet" ]; then
+    figlet_bin="/opt/homebrew/bin/figlet"
+  elif [ -z "$figlet_bin" ] && [ -x "/usr/local/bin/figlet" ]; then
+    figlet_bin="/usr/local/bin/figlet"
+  fi
+
+  if [ -n "$figlet_bin" ]; then
+    "$figlet_bin" -f slant "ajduke" | awk '
+      BEGIN {
+        c[1]="\033[38;5;141m";  # purple
+        c[2]="\033[38;5;177m";  # lilac
+        c[3]="\033[38;5;117m";  # cyan
+        c[4]="\033[38;5;81m";   # bright cyan
+      }
+      {
+        print c[((NR-1)%4)+1] $0 "\033[0m"
+      }
+    '
+    show_ajduke_tagline "$tagline" "177"
+  else
+    printf "\033[1;35m%s\033[0m\n" "ajduke"
+    show_ajduke_tagline "$tagline" "245"
+  fi
+
+  printf "\033[2;38;5;239m%s\033[0m\n" "  ........................................"
+  show_ajduke_motivation_quote
+  show_ajduke_runtime_versions
+  echo
+}
+
+# aliases for cursor agent and claude agent
+alias ca='cursor agent'
+alias cl='claude'
+
+alias clp='cd ~/workspace/projects/claude && claude'
+
+
 alias lg='lazygit'
 
-alias ca='cursor-agent'
-alias cl='claude'
